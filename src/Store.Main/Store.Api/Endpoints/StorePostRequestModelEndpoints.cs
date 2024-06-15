@@ -11,7 +11,7 @@ public static class StorePostRequestModelEndpoints
 
         group.MapGet("/", async ([FromServices] IStoreAppService appService) =>
         {
-            return new[] { new StoreResponseModel() };
+            return await appService.GetAll();
         })
         .WithName("GetAllStores")
         .WithOpenApi();

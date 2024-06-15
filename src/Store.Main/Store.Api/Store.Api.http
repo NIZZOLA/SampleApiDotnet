@@ -1,6 +1,31 @@
-@Store.Api_HostAddress = http://localhost:5210
-
-GET {{Store.Api_HostAddress}}/weatherforecast/
-Accept: application/json
+@Store.Api_HostAddress = https://localhost:7243
 
 ###
+GET {{Store.Api_HostAddress}}/api/Store
+Accept: application/json
+
+### Create a new store (replace with your desired store data)
+POST {{Store.Api_HostAddress}}/api/Store
+Accept: application/json
+
+{
+  "name": "My New Store",
+  "phone": "123-456-7890",
+  "email": "newstore@example.com"
+}
+
+### Get a store by ID (replace {id} with the actual store ID)
+GET {{Store.Api_HostAddress}}/api/Store/{id}
+
+### Update a store by ID (replace {id} with the actual store ID, and replace with your desired store data)
+PUT {{Store.Api_HostAddress}}/api/Store/{id}
+Content-Type: application/json
+
+{
+  "name": "Updated Store Name",
+  "phone": "987-654-3210",
+  "email": "updatedstore@example.com"
+}
+
+### Delete a store by ID (replace {id} with the actual store ID)
+DELETE {{Store.Api_HostAddress}}/api/Store/{id}

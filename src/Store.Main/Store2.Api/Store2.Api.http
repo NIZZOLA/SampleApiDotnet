@@ -1,13 +1,39 @@
-@Store2.Api_HostAddress = http://localhost:5194
+@Store2.Api_HostAddress = https://localhost:7273
 
-POST {{Store2.Api_HostAddress}}/api/account/login/?email=marcionizzola%40gmail.com&password=Fusca1983%23
-Accept: application/json
-
-###
-POST {{Store2.Api_HostAddress}}/api/account/login
-Accept: application/json
+### Login (replace with your credentials)
+POST {{Store2.Api_HostAddress}}/api/Account/login
+Content-Type: application/json
 
 {
-  "email": "marcionizzola@gmail.com",
-  "password": "Fusca1983#"
-}}
+  "email": "your_email@example.com",
+  "password": "your_password"
+}
+
+### List Users (assuming no authorization required)
+GET {{Store2.Api_HostAddress}}/api/Operations/list-users
+
+### List Users with Authorization (assuming authorization is required)
+GET {{Store2.Api_HostAddress}}/api/Operations/list-users-auth
+Authorization: Bearer YOUR_ACCESS_TOKEN
+
+### Create User (replace with your user data)
+POST {{Store2.Api_HostAddress}}/api/Operations/create-user
+Content-Type: application/json
+
+{
+  "name": "JohnDoe",
+  "email": "john.doe@example.com",
+  "password": "securE_pas99ord##@"
+}
+
+### Create Role (replace with your role data)
+POST {{Store2.Api_HostAddress}}/api/Operations/create-role
+Content-Type: application/json
+
+{
+  "name": "New Role"
+}
+
+### List Roles (assuming authorization is required)
+GET {{Store2.Api_HostAddress}}/api/Secured/list-roles
+Authorization: Bearer YOUR_ACCESS_TOKEN

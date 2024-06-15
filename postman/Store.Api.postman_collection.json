@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "c6553e37-0138-466a-9f9f-9979c7a0f2b2",
+		"name": "Store.Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1762488",
+		"_collection_link": "https://cloudy-firefly-756698.postman.co/workspace/test~9dd20fa5-b0fa-40f0-a1dd-472866a472e5/collection/1762488-c6553e37-0138-466a-9f9f-9979c7a0f2b2?action=share&source=collection_link&creator=1762488"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "Store",
+					"item": [
+						{
+							"name": "{id}",
+							"item": [
+								{
+									"name": "Get Store By Id",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/Store/:id?id=<uuid>",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Store",
+												":id"
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) "
+												}
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "GET",
+												"header": [],
+												"url": {
+													"raw": "{{baseUrl}}/api/Store/:id?id=<uuid>",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Store",
+														":id"
+													],
+													"query": [
+														{
+															"key": "id",
+															"value": "<uuid>",
+															"description": "(Required) "
+														}
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Update Store Put",
+									"request": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<uuid>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Store/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Store",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "PUT",
+												"header": [
+													{
+														"key": "Content-Type",
+														"value": "application/json"
+													}
+												],
+												"body": {
+													"mode": "raw",
+													"raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\",\n  \"id\": \"<uuid>\"\n}",
+													"options": {
+														"raw": {
+															"headerFamily": "json",
+															"language": "json"
+														}
+													}
+												},
+												"url": {
+													"raw": "{{baseUrl}}/api/Store/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Store",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "text",
+											"header": [],
+											"cookie": [],
+											"body": ""
+										}
+									]
+								},
+								{
+									"name": "Delete Store",
+									"request": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Store/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Store",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id",
+													"value": "<uuid>",
+													"description": "(Required) "
+												}
+											]
+										}
+									},
+									"response": [
+										{
+											"name": "OK",
+											"originalRequest": {
+												"method": "DELETE",
+												"header": [
+													{
+														"key": "Accept",
+														"value": "application/json"
+													}
+												],
+												"url": {
+													"raw": "{{baseUrl}}/api/Store/:id",
+													"host": [
+														"{{baseUrl}}"
+													],
+													"path": [
+														"api",
+														"Store",
+														":id"
+													],
+													"variable": [
+														{
+															"key": "id"
+														}
+													]
+												}
+											},
+											"status": "OK",
+											"code": 200,
+											"_postman_previewlanguage": "json",
+											"header": [
+												{
+													"key": "Content-Type",
+													"value": "application/json"
+												}
+											],
+											"cookie": [],
+											"body": "{\n  \"id\": \"<uuid>\",\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\"\n}"
+										}
+									]
+								}
+							]
+						},
+						{
+							"name": "Get All Stores",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/api/Store",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Store"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/api/Store",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Store"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "[\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<string>\"\n  },\n  {\n    \"id\": \"<uuid>\",\n    \"name\": \"<string>\",\n    \"phone\": \"<string>\",\n    \"email\": \"<string>\"\n  }\n]"
+								}
+							]
+						},
+						{
+							"name": "Create Store Post",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/Store",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"Store"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "OK",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"name\": \"<string>\",\n  \"phone\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/Store",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"Store"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}

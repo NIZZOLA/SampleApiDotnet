@@ -9,7 +9,7 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["Store.Api.csproj", "Store.Api/"]
+COPY ["Store.Api/Store.Api.csproj", "Store.Api/"]
 COPY ["Store.Application/Store.Application.csproj", "Store.Application/"]
 COPY ["Store.Business/Store.Business.csproj", "Store.Business/"]
 COPY ["Store.Domain/Store.Domain.csproj", "Store.Domain/"]
