@@ -1,0 +1,13 @@
+@Store2.Api_HostAddress = http://localhost:5194
+
+POST {{Store2.Api_HostAddress}}/api/account/login/?email=marcionizzola%40gmail.com&password=Fusca1983%23
+Accept: application/json
+
+###
+POST {{Store2.Api_HostAddress}}/api/account/login
+Accept: application/json
+
+{
+  "email": "marcionizzola@gmail.com",
+  "password": "Fusca1983#"
+}}
