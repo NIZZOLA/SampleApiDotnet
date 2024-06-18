@@ -10,6 +10,6 @@ public static class DependencyInjectionHelper
     public static void AddApplication(this IServiceCollection services, IConfiguration configuration)
     {
         services.ScanDependencyInjection(Assembly.GetExecutingAssembly(), "AppService");
-        services.AddBusiness(configuration);
+        //services.AddBusiness(configuration);
     }
 }

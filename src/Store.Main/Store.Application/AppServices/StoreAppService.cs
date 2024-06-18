@@ -4,7 +4,7 @@ using Store.Application.Validators;
 using Store.Business.Interfaces;
 using Store.Domain.Domain;
 
-namespace Store.Application.Services;
+namespace Store.Application.AppServices;
 public class StoreAppService : IStoreAppService
 {
     private readonly IStoreService _storeService;

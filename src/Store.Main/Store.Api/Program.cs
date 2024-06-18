@@ -14,7 +14,10 @@ builder.Services.Configure<MongoDbConfiguration>(
     builder.Configuration.GetSection("MongoDbConfiguration"));
 
 builder.Services.AddApplication(builder.Configuration);
-
+builder.Host.UseDefaultServiceProvider(options =>
+{
+    options.ValidateOnBuild = true;
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

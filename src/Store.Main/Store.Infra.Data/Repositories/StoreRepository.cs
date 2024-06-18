@@ -2,12 +2,11 @@
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using Store.Domain.Domain;
-using Store.Infra.Data;
 using Store.Infra.Data.Context;
 using Store.Infra.Data.Interfaces;
 using Store.Infra.Data.Model;
 
-namespace Store.Domain.Repositories;
+namespace Store.Infra.Data.Repositories;
 public class StoreRepository : IStoreRepository
 {
     private readonly IStoreMongoDbContext _context;
