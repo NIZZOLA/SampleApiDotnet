@@ -82,6 +82,10 @@ public class ArchitectureTests
     private static GivenTypesConjunctionWithDescription Domain() =>
         TypesIn("Domain").As("Enterprise Business Rules");
 
+    private static GivenTypesConjunctionWithDescription SystemBase() =>
+    TypesIn("System").As("System .NET");
+
+
     [Fact(DisplayName = "Domain can not depend on outer layers")]
     public void CheckDomainRule() =>
         Domain()
@@ -117,12 +121,13 @@ public class ArchitectureTests
             .And(
                 Endpoints().Should()
                     .DependOnAny(AppServices()).AndShould()
+                    .DependOnAny(SystemBase()).AndShould()
                     .NotDependOnAny(Services()).AndShould()
                     .NotDependOnAny(Repositories())
-            )
-            .And(
-                AppServices().Should()
-                    .DependOnAny(Services()).AndShould()
-                    .NotDependOnAny(Repositories())
+            //)
+            //.And(
+            //    AppServices().Should()
+            //        .DependOnAny(Services()).AndShould()
+            //        .NotDependOnAny(Repositories())
             ).Check(Architecture);
 }

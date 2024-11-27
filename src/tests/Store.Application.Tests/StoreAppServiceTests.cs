@@ -2,8 +2,9 @@
 using FluentResults;
 using Mapster;
 using NSubstitute;
+using Store.Application.AppServices;
 using Store.Application.Contracts;
-using Store.Application.Services;
+using Store.Application.Interfaces;
 using Store.Application.Validators;
 using Store.Business.Interfaces;
 using Store.Domain.Domain;
@@ -12,7 +13,7 @@ namespace Store.Application.Tests;
 public class StoreAppServiceTests
 {
     private readonly IStoreService _storeService;
-    private readonly StoreAppService _storeAppService;
+    private readonly IStoreAppService _storeAppService;
 
     public StoreAppServiceTests()
     {
@@ -146,20 +147,23 @@ public class StoreAppServiceTests
         };
 
         var storeModel = requestModel.Adapt<StoreModel>();
-        storeModel.Id = Guid.NewGuid().ToString();
 
         var expectedErrorMessage = "Save operation failed";
         var errors = new List<Error> { new Error(expectedErrorMessage) };
 
         var expectedBusinessError = new Result<StoreModel>().WithError(expectedErrorMessage);
-        _storeService.Save(storeModel).Returns(expectedBusinessError);
+        _storeService.Save(Arg.Is<StoreModel>(m =>
+                m.Name == storeModel.Name &&
+                m.Phone == storeModel.Phone &&
+                m.Email == storeModel.Email
+            )).Returns(expectedBusinessError);
 
         // Act
         var result = await _storeAppService.Save(requestModel);
 
         // Assert
         Assert.True(result.IsFailed);
-        Assert.Equal(result.Errors[0].Message, expectedErrorMessage);
+        Assert.Contains(expectedErrorMessage,result.Errors[0].Message);
     }
 
     [Fact]
