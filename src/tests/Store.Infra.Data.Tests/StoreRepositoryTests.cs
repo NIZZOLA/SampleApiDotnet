@@ -1,6 +1,7 @@
 using FizzWare.NBuilder;
 using Mapster;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Logging.Testing;
 using MongoDB.Driver;
 using NSubstitute;
 using Store.Domain.Domain;
@@ -13,13 +14,13 @@ namespace Store.Infra.Data.Tests;
 public class StoreRepositoryTests
 {
     private readonly IStoreMongoDbContext _context;
-    private readonly ILogger<StoreRepository> _logger;
+    private readonly FakeLogger<StoreRepository> _logger;
     private readonly StoreRepository _storeRepository;
 
     public StoreRepositoryTests()
     {
         _context = Substitute.For<IStoreMongoDbContext>();
-        _logger = Substitute.For<ILogger<StoreRepository>>();
+        _logger = new FakeLogger<StoreRepository>();
         _storeRepository = new StoreRepository(_context, _logger);
     }
 

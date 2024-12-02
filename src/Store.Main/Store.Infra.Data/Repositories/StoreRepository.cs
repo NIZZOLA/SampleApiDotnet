@@ -82,6 +82,7 @@ public class StoreRepository : IStoreRepository
     {
         if (_logger.IsEnabled(LogLevel.Information))
             _logger.LogInformation($"{StoreMessageConstants.UpdateProcessStarted} {model.Id}");
+
         var result = false;
         try
         {
