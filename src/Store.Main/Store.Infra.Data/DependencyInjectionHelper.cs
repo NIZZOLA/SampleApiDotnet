@@ -1,8 +1,6 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using MongoDB.Bson.Serialization.Conventions;
-using Store.Infra.Data.Configuration;
-using Store.Infra.Data.Context;
+using Store.Infra.Data.MongoDb.Context;
 using System.Reflection;
 
 namespace Store.Infra.Data;

@@ -17,7 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Store.Domain\Store.Domain.csproj" />
-    <ProjectReference Include="..\Store.Infra.Data\Store.Infra.Data.csproj" />
+    <ProjectReference Include="..\Store.Infra.Data\Store.Infra.Data.MongoDb.csproj" />
   </ItemGroup>
 
 </Project>

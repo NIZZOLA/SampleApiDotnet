@@ -1,6 +1,6 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 
-namespace Store.Infra.Data.Model;
+namespace Store.Infra.Data.MongoDb.Model;
 public class StoreDataModel: BaseDataModel
 {
     [BsonElement("Name")]

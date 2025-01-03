@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-
-namespace Store.Infra.Data;
+﻿namespace Store.Infra.Data;
 public static class StoreMessageConstants
 {
     public const string CreateError = $"Failure to save object:";

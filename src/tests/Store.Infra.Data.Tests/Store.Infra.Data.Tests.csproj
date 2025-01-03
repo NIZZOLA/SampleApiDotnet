@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Store.Main\Store.Infra.Data\Store.Infra.Data.csproj" />
+    <ProjectReference Include="..\..\Store.Main\Store.Infra.Data\Store.Infra.Data.MongoDb.csproj" />
   </ItemGroup>
 
   <ItemGroup>

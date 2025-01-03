@@ -3,7 +3,7 @@ using Store.Application.Contracts;
 using Store.Application.Interfaces;
 namespace Store.Api.Endpoints;
 
-public static class StorePostRequestModelEndpoints
+public static class StoreEndpoints
 {
     public static void MapStorePostRequestModelEndpoints(this IEndpointRouteBuilder routes)
     {

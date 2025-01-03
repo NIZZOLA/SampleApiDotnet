@@ -1,7 +1,7 @@
 ﻿using MongoDB.Bson.Serialization.Attributes;
 using MongoDB.Bson;
 
-namespace Store.Infra.Data.Model;
+namespace Store.Infra.Data.MongoDb.Model;
 
 public class BaseDataModel
 {

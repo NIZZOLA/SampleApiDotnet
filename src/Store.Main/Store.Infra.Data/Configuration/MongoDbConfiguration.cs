@@ -1,4 +1,4 @@
-﻿namespace Store.Infra.Data.Configuration;
+﻿namespace Store.Infra.Data.MongoDb.Configuration;
 public class MongoDbConfiguration
 {
     public string DatabaseName { get; set; }

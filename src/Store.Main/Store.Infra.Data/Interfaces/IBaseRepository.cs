@@ -1,4 +1,4 @@
-﻿namespace Store.Infra.Data.Interfaces;
+﻿namespace Store.Infra.Data.MongoDb.Interfaces;
 public interface IBaseRepository<T> where T : class
 {
     Task<IEnumerable<T>> GetAll();

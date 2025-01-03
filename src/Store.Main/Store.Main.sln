@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Domain", "Store.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Application", "Store.Application\Store.Application.csproj", "{5B08A53F-E680-4ADA-8981-93E0D8667BF3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infra.Data", "Store.Infra.Data\Store.Infra.Data.csproj", "{91B47EA1-786F-435C-B243-706D9A105DAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infra.Data.MongoDb", "Store.Infra.Data\Store.Infra.Data.MongoDb.csproj", "{91B47EA1-786F-435C-B243-706D9A105DAC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Business", "Store.Business\Store.Business.csproj", "{95D0B50F-C5C9-4277-A737-9B1022B176FB}"
 EndProject
