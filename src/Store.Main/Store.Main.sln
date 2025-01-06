@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Domain", "Store.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Application", "Store.Application\Store.Application.csproj", "{5B08A53F-E680-4ADA-8981-93E0D8667BF3}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infra.Data.MongoDb", "Store.Infra.Data\Store.Infra.Data.MongoDb.csproj", "{91B47EA1-786F-435C-B243-706D9A105DAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infra.Data.MongoDb", "Store.Infra.Data.MongoDb\Store.Infra.Data.MongoDb.csproj", "{91B47EA1-786F-435C-B243-706D9A105DAC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Business", "Store.Business\Store.Business.csproj", "{95D0B50F-C5C9-4277-A737-9B1022B176FB}"
 EndProject
@@ -23,9 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store2.Api", "Store2.Api\St
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Business.Tests", "..\tests\Store.Business.Tests\Store.Business.Tests.csproj", "{8E1882E6-727B-41FF-BC04-689D1549166F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infra.Data.Tests", "..\Tests\Store.Infra.Data.Tests\Store.Infra.Data.Tests.csproj", "{BAF4C3E9-6B77-4C50-BD94-11FE9145423C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infra.Data.MongoDb.Tests", "..\Tests\Store.Infra.Data.MongoDb.Tests\Store.Infra.Data.Tests.csproj", "{BAF4C3E9-6B77-4C50-BD94-11FE9145423C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Domain.Tests", "..\Tests\Store.Domain.Tests\Store.Domain.Tests.csproj", "{6F55938A-328E-4060-9DB4-4E67D8181EDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Infra.Data.Sql", "Store.Infra.Data.Sql\Store.Infra.Data.Sql.csproj", "{CB3DDB9E-AAC6-4CC6-B235-DFCD08A7DD70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -73,6 +75,10 @@ Global
 		{6F55938A-328E-4060-9DB4-4E67D8181EDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F55938A-328E-4060-9DB4-4E67D8181EDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F55938A-328E-4060-9DB4-4E67D8181EDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB3DDB9E-AAC6-4CC6-B235-DFCD08A7DD70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB3DDB9E-AAC6-4CC6-B235-DFCD08A7DD70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB3DDB9E-AAC6-4CC6-B235-DFCD08A7DD70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB3DDB9E-AAC6-4CC6-B235-DFCD08A7DD70}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
