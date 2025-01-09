@@ -1,5 +1,4 @@
 ﻿using Store.Api.Endpoints;
-using Store.Infra.Data.MongoDb.Configuration;
 using Store.Application;
 using Microsoft.AspNetCore.RateLimiting;
 using Store.Api;
@@ -23,10 +22,10 @@ builder.Services.AddRateLimiter(_ => _
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.Configure<MongoDbConfiguration>(
-    builder.Configuration.GetSection("MongoDbConfiguration"));
-
 builder.Services.AddApplication(builder.Configuration);
+
+//builder.Services.Configure<MongoDbConfiguration>(
+//    builder.Configuration.GetSection("MongoDbConfiguration"));
 
 var app = builder.Build();
 
@@ -43,4 +42,3 @@ app.UseHttpsRedirection();
 app.MapStorePostRequestModelEndpoints();
 
 app.Run();
-

@@ -1,8 +1,6 @@
 ﻿using FluentResults;
 using Microsoft.Extensions.Logging;
 using Store.Domain.Validatiors;
-using System.ComponentModel.DataAnnotations;
-using System;
 using Store.Domain.Interfaces.Services;
 using Store.Domain.Interfaces.Repositories;
 

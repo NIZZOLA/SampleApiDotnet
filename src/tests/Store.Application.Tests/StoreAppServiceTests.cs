@@ -5,8 +5,8 @@ using NSubstitute;
 using Store.Application.Contracts;
 using Store.Application.Services;
 using Store.Application.Validators;
-using Store.Business.Interfaces.Services;
 using Store.Domain.Domain;
+using Store.Domain.Interfaces.Services;
 
 namespace Store.Application.Tests;
 public class StoreAppServiceTests

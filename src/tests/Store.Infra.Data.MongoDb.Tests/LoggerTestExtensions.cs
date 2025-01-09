@@ -1,10 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using NSubstitute;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Store.Infra.Data.Tests;
 public static class LoggerTestExtensions

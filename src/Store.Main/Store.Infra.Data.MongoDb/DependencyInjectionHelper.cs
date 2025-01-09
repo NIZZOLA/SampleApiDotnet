@@ -6,9 +6,14 @@ using System.Reflection;
 namespace Store.Infra.Data.MongoDb;
 public static class DependencyInjectionHelper
 {
-    public static void AddDataModule(this IServiceCollection services, IConfiguration configuration)
+    public static void AddMongoDbDataModule(this IServiceCollection services, IConfiguration configuration)
     {
         services.AddScoped<IStoreMongoDbContext,StoreMongoDbContext>();
         services.ScanDependencyInjection(Assembly.GetExecutingAssembly(), "Repository");
+        
+        var mongoDbSettings = configuration.GetSection(nameof(MongoDbConfig)).Get<MongoDbConfig>();
+
+//        services.Configure<MongoDbConfiguration>(configuration.GetSection("MongoDbConfiguration"));
+
     }
 }

@@ -3,10 +3,9 @@ using FluentValidation;
 using FluentValidation.Results;
 using Microsoft.Extensions.Logging;
 using NSubstitute;
-using Store.Business.Interfaces.Repositories;
 using Store.Business.Services;
 using Store.Domain.Domain;
-using Store.Infra.Data.Interfaces;
+using Store.Domain.Interfaces.Repositories;
 
 namespace Store.Business.Tests;
 

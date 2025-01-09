@@ -2,5 +2,5 @@
 
 public class BaseDataModel
 {
-    public string? Id { get; set; }
+    public Guid Id { get; set; }
 }
