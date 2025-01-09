@@ -1,4 +1,5 @@
 ﻿using FluentResults;
+using Store.Domain.Interfaces.Services;
 
 namespace Store.Business.Services;
 public abstract class ServiceBase<TEntity> : IDisposable, IServiceBase<TEntity> where TEntity : BaseModel

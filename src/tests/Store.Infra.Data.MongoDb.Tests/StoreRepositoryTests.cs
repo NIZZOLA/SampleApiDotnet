@@ -5,9 +5,9 @@ using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using NSubstitute;
 using Store.Domain.Domain;
-using Store.Domain.Repositories;
-using Store.Infra.Data.Context;
-using Store.Infra.Data.Model;
+using Store.Infra.Data.MongoDb.Context;
+using Store.Infra.Data.MongoDb.Model;
+using Store.Infra.Data.MongoDb.Repositories;
 
 namespace Store.Infra.Data.Tests;
 

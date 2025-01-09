@@ -1,2 +1,2 @@
-﻿global using Store.Business.Interfaces;
+﻿global using Store.Domain.Interfaces;
 global using Store.Domain.Domain;

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Store.Domain;
-using Store.Infra.Data;
+using Store.Infra.Data.MongoDb;
 using System.Reflection;
 
 namespace Store.Business;

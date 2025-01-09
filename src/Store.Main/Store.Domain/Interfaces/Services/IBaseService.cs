@@ -1,6 +1,6 @@
 ﻿using FluentResults;
 
-namespace Store.Business.Interfaces;
+namespace Store.Domain.Interfaces.Services;
 public interface IServiceBase<TEntity> where TEntity : class
 {
     Task<Result<TEntity>> Save(TEntity obj);

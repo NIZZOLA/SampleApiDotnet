@@ -1,4 +1,4 @@
-﻿namespace Store.Infra.Data.MongoDb;
+﻿namespace Store.Infra.Data.Sql;
 public static class StoreMessageConstants
 {
     public const string CreateError = $"Failure to save object:";

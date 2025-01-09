@@ -1,7 +1,7 @@
 ﻿using Mapster;
 using Store.Application.Interfaces;
 using Store.Application.Validators;
-using Store.Business.Interfaces;
+using Store.Domain.Interfaces.Services;
 using Store.Domain.Domain;
 
 namespace Store.Application.Services;

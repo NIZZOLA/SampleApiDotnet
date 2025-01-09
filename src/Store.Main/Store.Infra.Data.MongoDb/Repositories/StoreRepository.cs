@@ -2,7 +2,7 @@
 using Microsoft.Extensions.Logging;
 using MongoDB.Driver;
 using Store.Domain.Domain;
-using Store.Infra.Data.Interfaces;
+using Store.Domain.Interfaces.Repositories;
 using Store.Infra.Data.MongoDb.Context;
 using Store.Infra.Data.MongoDb.Model;
 

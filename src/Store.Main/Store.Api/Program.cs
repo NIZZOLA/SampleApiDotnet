@@ -1,12 +1,25 @@
 ﻿using Store.Api.Endpoints;
-using Store.Infra.Data.Configuration;
+using Store.Infra.Data.MongoDb.Configuration;
 using Store.Application;
-using Store.Business;
+using Microsoft.AspNetCore.RateLimiting;
+using Store.Api;
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 Console.WriteLine($"Starting App With Environment: {builder.Environment.EnvironmentName}");
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+var concurrencyPolicy = "Concurrency";
+var myOptions = new RateLimitOptions();
+builder.Configuration.GetSection(RateLimitOptions.MyRateLimit).Bind(myOptions);
+
+builder.Services.AddRateLimiter(_ => _
+    .AddConcurrencyLimiter(policyName: concurrencyPolicy, options =>
+    {
+        options.PermitLimit = myOptions.PermitLimit;
+        options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
+        options.QueueLimit = myOptions.QueueLimit;
+    }));
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -24,6 +37,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseRateLimiter();
 app.UseHttpsRedirection();
 
 app.MapStorePostRequestModelEndpoints();

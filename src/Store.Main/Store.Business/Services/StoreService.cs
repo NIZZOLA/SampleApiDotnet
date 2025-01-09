@@ -1,9 +1,10 @@
 ﻿using FluentResults;
 using Microsoft.Extensions.Logging;
 using Store.Domain.Validatiors;
-using Store.Infra.Data.Interfaces;
 using System.ComponentModel.DataAnnotations;
 using System;
+using Store.Domain.Interfaces.Services;
+using Store.Domain.Interfaces.Repositories;
 
 namespace Store.Business.Services;
 public class StoreService : ServiceBase<StoreModel>, IStoreService

@@ -23,11 +23,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store2.Api", "Store2.Api\St
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Business.Tests", "..\tests\Store.Business.Tests\Store.Business.Tests.csproj", "{8E1882E6-727B-41FF-BC04-689D1549166F}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infra.Data.MongoDb.Tests", "..\Tests\Store.Infra.Data.MongoDb.Tests\Store.Infra.Data.Tests.csproj", "{BAF4C3E9-6B77-4C50-BD94-11FE9145423C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infra.Data.MongoDb.Tests", "..\Tests\Store.Infra.Data.MongoDb.Tests\Store.Infra.Data.MongoDb.Tests.csproj", "{BAF4C3E9-6B77-4C50-BD94-11FE9145423C}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Domain.Tests", "..\Tests\Store.Domain.Tests\Store.Domain.Tests.csproj", "{6F55938A-328E-4060-9DB4-4E67D8181EDC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Store.Infra.Data.Sql", "Store.Infra.Data.Sql\Store.Infra.Data.Sql.csproj", "{CB3DDB9E-AAC6-4CC6-B235-DFCD08A7DD70}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Store.Infra.Data.Sql", "Store.Infra.Data.Sql\Store.Infra.Data.Sql.csproj", "{CB3DDB9E-AAC6-4CC6-B235-DFCD08A7DD70}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
