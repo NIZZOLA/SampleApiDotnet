@@ -20,6 +20,7 @@ public static class StoreEndpoints
          .Produces<IList<FluentResults.IError>>(StatusCodes.Status400BadRequest)
          .Produces<StoreResponseModel>(StatusCodes.Status201Created)
          .WithName("CreateStorePost")
+         .RequireRateLimiting(RateLimitOptions.MyRateLimit)
          .WithOpenApi();
 
         group.MapGet("/", async ([FromServices] IStoreAppService appService) =>
@@ -43,6 +44,22 @@ public static class StoreEndpoints
          .Produces(StatusCodes.Status404NotFound)
          .WithName("GetStoreById")
          .WithOpenApi();
+
+        group.MapGet("/limited/{id}", async ([FromServices] IStoreAppService appService, [FromQuery] Guid id) =>
+        {
+            var result = await appService.GetOne(id);
+
+            if (result is null)
+                return Results.NotFound();
+
+            return Results.Ok(result);
+        })
+         .Produces<StoreResponseModel>(StatusCodes.Status200OK)
+         .Produces(StatusCodes.Status404NotFound)
+         .WithName("GetStoreByIdLimited")
+         .RequireRateLimiting(RateLimitOptions.MyRateLimit)
+         .WithOpenApi();
+
 
         group.MapPut("/{id}", async ([FromServices] IStoreAppService appService, Guid id, StorePutRequestModel input) =>
         {

@@ -7,17 +7,15 @@ using System.Threading.RateLimiting;
 var builder = WebApplication.CreateBuilder(args);
 Console.WriteLine($"Starting App With Environment: {builder.Environment.EnvironmentName}");
 
-var concurrencyPolicy = "Concurrency";
-var myOptions = new RateLimitOptions();
-builder.Configuration.GetSection(RateLimitOptions.MyRateLimit).Bind(myOptions);
-
-builder.Services.AddRateLimiter(_ => _
-    .AddConcurrencyLimiter(policyName: concurrencyPolicy, options =>
+builder.Services.AddRateLimiter(limiterOptions =>
+{
+    limiterOptions.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    limiterOptions.AddFixedWindowLimiter(policyName: RateLimitOptions.MyRateLimit, options =>
     {
-        options.PermitLimit = myOptions.PermitLimit;
-        options.QueueProcessingOrder = QueueProcessingOrder.OldestFirst;
-        options.QueueLimit = myOptions.QueueLimit;
-    }));
+        options.PermitLimit = 3;
+        options.Window = TimeSpan.FromSeconds(5);
+    });
+});
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
