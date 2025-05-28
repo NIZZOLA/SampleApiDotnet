@@ -22,9 +22,6 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddApplication(builder.Configuration);
 
-//builder.Services.Configure<MongoDbConfiguration>(
-//    builder.Configuration.GetSection("MongoDbConfiguration"));
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
