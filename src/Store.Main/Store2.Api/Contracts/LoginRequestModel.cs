@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace Store2.Api.Contracts;
+﻿namespace Store2.Api.Contracts;
 
 public class LoginRequestModel
 {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.IdentityModel.Tokens;
 using Store2.Api.Contracts;
 using Store2.Api.Models;
@@ -26,6 +27,7 @@ public class AccountController : ControllerBase
 
     [HttpPost("login")]
     [AllowAnonymous]
+    [EnableRateLimiting("fixed")]
     public async Task<IActionResult> Login([FromBody] LoginRequestModel loginRequest)
     {
         if (ModelState.IsValid)

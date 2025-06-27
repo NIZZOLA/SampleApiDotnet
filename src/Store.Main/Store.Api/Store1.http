@@ -1,0 +1,8 @@
+@Store.Api_HostAddress = https://localhost:7243
+
+GET {{Store.Api_HostAddress}}/api/Store
+
+
+### consulta 1
+
+GET {{Store.Api_HostAddress}}/api/Store/{id}?id=efbe2316-116c-4352-ad3e-2ce09d22fbe3

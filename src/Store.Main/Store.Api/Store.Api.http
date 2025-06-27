@@ -1,4 +1,4 @@
-@Store.Api_HostAddress = https://localhost:7243
+@Store.Api_HostAddress = http://localhost:7243
 
 ###
 GET {{Store.Api_HostAddress}}/api/Store

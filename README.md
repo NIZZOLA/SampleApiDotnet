@@ -1,75 +1,19 @@
-# Store Management and User Authentication API
+# Como Rodar Migrations no Projeto
 
-## User Story
+Para executar uma migração, dado que o projeto da Api que contém as configurações do Contexto está em projeto diferente do que o Contexto, precisamos seguiralguns passos para a execução de uma migration, primeiramente, deve-se executar o terminal prompt na pasta do projeto: 
 
-### Background
+Caso não tenha comandos dotnet-ef, execute a linha de comando abaixo:dotnet tool install --global dotnet-ef
 
-As a developer, you have been tasked with creating a web application to manage store data and users, with a focus on security and authentication. The application should allow creating, reading, updating, and deleting store records and provide a secure way to create and manage users with different roles. For authentication, you have chosen to use JWT Tokens along with MongoDB for data storage and Microsoft Identity for credential management.
+Após a instalação, execute o comando a seguir, para criar uma nova migration, execute o comando abaixo na pasta: Store.Data.Sql
 
-### User Story
+dotnet ef migrations add First --project ../Store.Infra.Data.Sql/Store.Infra.Data.Sql.csproj
 
-**Title**: Store and User Management with Secure Authentication
+caso queira remover a Migration criada, execute o comando abaixo:
+dotnet ef migrations remove --project ../Store.Infra.Data.Sql/Store.Infra.Data.Sql.csproj
 
-**As** a system administrator,  
-**I want** to manage store data and users through a secure interface,  
-**So that** I can ensure data integrity and security, and control access to application functionalities.
+Caso queira gerar o script de migração a ser aplicado, execute o comando abaixo:
+dotnet ef migrations script -o ../Store.Infra.Data.Sql/script.sql --project ../Store.Infra.Data.Sql/Store.Infra.Data.Sql.csproj
 
-### Details
 
-1. **Store Management (Store.Api)**:
-   - **As** a system administrator,
-   - **I want** to create, read, update, and delete store data through RESTful endpoints,
-   - **So that** I can keep store information updated and organized.
-
-2. **User Registration and Authentication (Store2.Api)**:
-   - **As** a system administrator,
-   - **I want** to create users and assign different roles,
-   - **So that** I can control access to application functionalities.
-   - **I want** users to log in using their credentials,
-   - **So that** they can securely access the application and receive a JWT Token for authentication.
-
-3. **Protected Access**:
-   - **As** an authenticated user,
-   - **I want** to access protected endpoints that require authentication,
-   - **So that** I can perform secure operations as allowed by my role.
-   - **As** an unauthenticated user,
-   - **I want** to access unprotected endpoints,
-   - **So that** I can view public information without the need to log in.
-
-### Features
-
-- **Store.Api**:
-  - Endpoint to **create** a new store.
-  - Endpoint to **read** a specific store's data or all stores.
-  - Endpoint to **update** an existing store's data.
-  - Endpoint to **delete** a store.
-
-- **Store2.Api**:
-  - Endpoint to **create** a new user with a specific role.
-  - Endpoint for user **login**, with JWT Token generation.
-  - **Protected** endpoint for performing specific operations available only to authenticated users.
-  - **Unprotected** endpoint to view public information.
-
-### Acceptance Criteria
-
-1. **Store CRUD**:
-   - It should be possible to create, read, update, and delete stores via the Store.Api.
-   - Each store should have a unique identifier and at least two other relevant fields (e.g., store name, address).
-
-2. **User Management**:
-   - It should be possible to create users with different roles (e.g., administrator, regular user) in the Store2.Api.
-   - It should be possible to log in with a created user and receive a JWT Token.
-
-3. **Authentication and Authorization**:
-   - Protected endpoints should be accessible only to authenticated users with a valid JWT Token.
-   - Unprotected endpoints should be accessible without authentication.
-
-4. **Security**:
-   - User passwords should be securely stored using hashing.
-   - The application should validate user credentials during login and issue a JWT Token for authenticated sessions.
-
-### Postman Collection
-
-To help tests in \postman collection has samples, in each api folder has .http file to perform tests
-
-With these features and acceptance criteria, the application will be able to manage store and user data securely and efficiently, ensuring data integrity and secure access.
+Caso queira aplicar as migratiopns
+dotnet ef database update --project ..\Store.Infra.Data.Sql\Store.Infra.Data.Sql.csproj --context StoreContext

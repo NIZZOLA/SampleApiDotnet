@@ -3,7 +3,6 @@ using Store.Domain.Constants;
 using Store.Domain.Domain;
 using Store.Domain.Validatiors;
 using FluentValidation.TestHelper;
-using Store.Domain.Tests.Builder;
 
 namespace Store.Domain.Tests;
 

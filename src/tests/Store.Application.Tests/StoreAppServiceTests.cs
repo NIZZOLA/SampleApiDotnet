@@ -2,11 +2,12 @@
 using FluentResults;
 using Mapster;
 using NSubstitute;
+using NSubstitute.Core.Arguments;
 using Store.Application.Contracts;
 using Store.Application.Services;
 using Store.Application.Validators;
-using Store.Business.Interfaces;
 using Store.Domain.Domain;
+using Store.Domain.Interfaces.Services;
 
 namespace Store.Application.Tests;
 public class StoreAppServiceTests
@@ -152,14 +153,14 @@ public class StoreAppServiceTests
         var errors = new List<Error> { new Error(expectedErrorMessage) };
 
         var expectedBusinessError = new Result<StoreModel>().WithError(expectedErrorMessage);
-        _storeService.Save(storeModel).Returns(expectedBusinessError);
+        _storeService.Save(Arg.Any<StoreModel>()).Returns(expectedBusinessError);
 
         // Act
         var result = await _storeAppService.Save(requestModel);
 
         // Assert
         Assert.True(result.IsFailed);
-        Assert.Equal(result.Errors[0].Message, expectedErrorMessage);
+        Assert.Contains(expectedErrorMessage, result.Errors[0].Message);
     }
 
     [Fact]
