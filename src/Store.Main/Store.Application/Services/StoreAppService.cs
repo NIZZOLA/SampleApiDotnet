@@ -35,9 +35,9 @@ public class StoreAppService : IStoreAppService
 
         var model = obj.Adapt<StoreModel>();
         var result = await _storeService.Save(model);
-        if(result.IsFailed) 
+        if(result is null || result.IsFailed) 
         {
-            return Result.Fail(ErrorMessageHelpers.CreateErrorMessage("create", Guid.Parse(model.Id), result.Errors));
+            return Result.Fail(ErrorMessageHelpers.CreateErrorMessage("create", model.Id is null? Guid.Empty : Guid.Parse(model?.Id), result?.Errors));
         }
         return Result.Ok(result.Value.Adapt<StoreResponseModel>());
     }

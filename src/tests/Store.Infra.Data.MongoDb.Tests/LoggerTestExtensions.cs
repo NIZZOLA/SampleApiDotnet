@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using NSubstitute;
 
-namespace Store.Infra.Data.Tests;
+namespace Store.Infra.Data.MongoDb.Tests;
 public static class LoggerTestExtensions
 {
     public static void AnyLogOfType<T>(this ILogger<T> logger, LogLevel level) where T : class

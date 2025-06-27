@@ -16,7 +16,7 @@ public class ErrorMessageHelpersTests
             new Error("Second error")
         };
 
-        var expectedMessage = $"{message} {id} - reason: First error,Second error";
+        var expectedMessage = $"{message} {id} - reason: {string.Join(",", errors)}";
 
         // Act
         var result = ErrorMessageHelpers.CreateErrorMessage(message, id, errors);

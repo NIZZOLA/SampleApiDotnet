@@ -12,13 +12,24 @@ public static class DependencyInjectionHelper
     {
         services.ScanDependencyInjection(Assembly.GetExecutingAssembly(), "Service");
 
-        if (configuration.GetSection("DatabaseType").Value == "MongoDb")
+        switch (configuration.GetSection("DatabaseType").Value)
         {
-            services.AddMongoDbDataModule(configuration);
-        }
-        else
-        {
-            services.AddSqlDataModule(configuration);
+            case "MongoDb":
+                services.AddMongoDbDataModule(configuration);
+                break;
+            case "SqlServer":
+                services.AddSqlDataModule(configuration);
+                break;
+            case "Postgres":
+            //    services.AddPostgresDataModule(configuration);
+                    throw new NotImplementedException("Postgres support is not implemented yet.");
+                break;
+            case "MySql":
+                //    services.AddMySqlDataModule(configuration);
+                throw new NotImplementedException("MySql support is not implemented yet.");
+                break;
+            default:
+                throw new InvalidOperationException($"Unsupported database type. {configuration.GetSection("DatabaseType").Value}");
         }
     }
 }

@@ -70,7 +70,12 @@ public class StoreServiceTests
     public async Task Save_Should_Validate_And_Create_New_Store()
     {
         // Arrange
-        var store = Builder<StoreModel>.CreateNew().With(s => s.Id = null).Build();
+        var store = Builder<StoreModel>.CreateNew()
+                                .With(s => s.Id = null)
+                                .With(a => a.Name = "Testname")
+                                .With(a => a.Email = "aaa@a.com")
+                                .With(a => a.Phone = "11.1111-9999").Build();
+
         var validator = Substitute.For<IValidator<StoreModel>>();
         validator.Validate(store).Returns(new ValidationResult());
 

@@ -109,7 +109,7 @@ public class BaseRepository : IBaseRepository<StoreModel>
     {
         try
         {
-            var entity = await _context.Stores.FindAsync(model.Id);
+            var entity = await _context.Stores.FindAsync(Guid.Parse(model.Id));
             if (entity == null)
             {
                 return false;

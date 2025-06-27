@@ -12,8 +12,11 @@ public static class DependencyInjectionHelper
         services.ScanDependencyInjection(Assembly.GetExecutingAssembly(), "Repository");
 
         services.AddDbContext<StoreContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("ProdutosContext") ?? 
-                throw new InvalidOperationException("Connection string 'StoreContext' not found."), 
-                b => b.MigrationsAssembly("Store.Api")));
+        {
+            var connection = configuration.GetConnectionString("ProdutosContext") ??
+                throw new InvalidOperationException("Connection string 'StoreContext' not found.");
+
+            options.UseSqlServer(connection, b => b.MigrationsAssembly("Store.Infra.Data.Sql"));
+        });
     }
 }

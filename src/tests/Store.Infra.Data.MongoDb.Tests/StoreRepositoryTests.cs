@@ -8,7 +8,7 @@ using Store.Infra.Data.MongoDb.Context;
 using Store.Infra.Data.MongoDb.Model;
 using Store.Infra.Data.MongoDb.Repositories;
 
-namespace Store.Infra.Data.Tests;
+namespace Store.Infra.Data.MongoDb.Tests;
 
 public class StoreRepositoryTests
 {
@@ -46,8 +46,8 @@ public class StoreRepositoryTests
     private IEnumerable<string> GetLoggerReceivedItems()
     {
         return _logger?.ReceivedCalls()?
-                                              .SelectMany(x => x.GetArguments())?
-                                              .Select(x => x?.ToString());
+                       .SelectMany(x => x.GetArguments())?
+                       .Select(x => x?.ToString());
     }
 
     [Fact]
@@ -62,8 +62,7 @@ public class StoreRepositoryTests
 
         // Assert
         Assert.False(result);
-
-        
+                
         //_logger.Received().LogError(Arg.Is<string>(s => s.Contains(StoreMessageConstants.CreateError)));
     }
 
@@ -116,6 +115,7 @@ public class StoreRepositoryTests
         Assert.Equal(stores.Adapt<IEnumerable<StoreModel>>(), result);
     }
 
+
     [Fact]
     public async Task GetOne_Should_Return_Store()
     {
@@ -139,11 +139,10 @@ public class StoreRepositoryTests
     {
         // Arrange
         var storeModel = Builder<StoreModel>.CreateNew().Build();
-        var storeDataModel = storeModel.Adapt<StoreDataModel>();
         var updateResult = Substitute.For<ReplaceOneResult>();
         updateResult.IsAcknowledged.Returns(true);
         updateResult.ModifiedCount.Returns(1);
-        _context.Stores.ReplaceOneAsync(Arg.Any<FilterDefinition<StoreDataModel>>(), storeDataModel).Returns(Task.FromResult(updateResult));
+        _context.Stores.ReplaceOneAsync(Arg.Any<FilterDefinition<StoreDataModel>>(), Arg.Any<StoreDataModel>()).Returns(Task.FromResult(updateResult));
 
         // Act
         var result = await _storeRepository.Update(storeModel);
