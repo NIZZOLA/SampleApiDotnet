@@ -13,7 +13,7 @@ public class StoreRepositoryTests
         var fixture = new ContainersFixture();
         fixture.InitializeAsync().Wait();
         var dbContext = fixture.GetContext();
-       // _storeRepository = new StoreRepository(dbContext, new FakeLogger<StoreRepository>());
+        _storeRepository = new StoreRepository(dbContext, new FakeLogger<StoreRepository>());
     }
 
     [Fact]
